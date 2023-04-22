@@ -1,0 +1,11 @@
+#############################################
+Thank you for installing {{ .Chart.Name }}.  
+#############################################
+
+- Loki ........ ✅
+- Promtail .... ✅ 
+- Fluent-bit .. ✅ 
+- Prometheus .. ✅ 
+- Filebeat .... ✅ 
+- Mimir ....... ✅ 
+- Tempo ....... ✅  

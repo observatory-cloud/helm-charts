@@ -1,0 +1,334 @@
+apiVersion: v1
+entries:
+  cert-manager:
+  - annotations:
+      artifacthub.io/prerelease: "false"
+      artifacthub.io/signKey: |
+        fingerprint: 1020CF3C033D4F35BAE1C19E1226061C665DF13E
+        url: https://cert-manager.io/public-keys/cert-manager-keyring-2021-09-20-1020CF3C033D4F35BAE1C19E1226061C665DF13E.gpg
+    apiVersion: v1
+    appVersion: v1.11.1
+    created: "2023-04-22T19:16:44.243032+04:00"
+    description: A Helm chart for cert-manager
+    digest: 55faa9588bd5243d6e5a549f36277e400d729fdd61d325649fcc2d7b1558770a
+    home: https://github.com/cert-manager/cert-manager
+    icon: https://raw.githubusercontent.com/cert-manager/cert-manager/d53c0b9270f8cd90d908460d69502694e1838f5f/logo/logo-small.png
+    keywords:
+    - cert-manager
+    - kube-lego
+    - letsencrypt
+    - tls
+    kubeVersion: '>= 1.21.0-0'
+    maintainers:
+    - email: cert-manager-maintainers@googlegroups.com
+      name: cert-manager-maintainers
+      url: https://cert-manager.io
+    name: cert-manager
+    sources:
+    - https://github.com/cert-manager/cert-manager
+    urls:
+    - https://observatory-cloud.github.io/helm-chart/charts/cert-manager-v1.11.1.tgz
+    version: v1.11.1
+  grafana:
+  - apiVersion: v2
+    appVersion: 9.4.7
+    created: "2023-04-22T19:16:44.247692+04:00"
+    description: The leading tool for querying and visualizing time series and metrics.
+    digest: 029e2928a2073acfd49205d8484faad90ddcd2fe65fe5c6a508dee9a0c56330b
+    home: https://grafana.net
+    icon: https://raw.githubusercontent.com/grafana/grafana/master/public/img/logo_transparent_400x.png
+    kubeVersion: ^1.8.0-0
+    maintainers:
+    - email: zanhsieh@gmail.com
+      name: zanhsieh
+    - email: rluckie@cisco.com
+      name: rtluckie
+    - email: maor.friedman@redhat.com
+      name: maorfr
+    - email: miroslav.hadzhiev@gmail.com
+      name: Xtigyro
+    - email: mail@torstenwalter.de
+      name: torstenwalter
+    name: grafana
+    sources:
+    - https://github.com/grafana/grafana
+    type: application
+    urls:
+    - https://observatory-cloud.github.io/helm-chart/charts/grafana-6.52.9.tgz
+    version: 6.52.9
+  - apiVersion: v2
+    appVersion: 9.2.4
+    created: "2023-04-22T19:16:44.244771+04:00"
+    description: The leading tool for querying and visualizing time series and metrics.
+    digest: dc45d75ff06f6ca82a3c7dc063ebe73f8e4c6126c5a131a51ed35294743eb087
+    home: https://grafana.net
+    icon: https://raw.githubusercontent.com/grafana/grafana/master/public/img/logo_transparent_400x.png
+    kubeVersion: ^1.8.0-0
+    maintainers:
+    - email: zanhsieh@gmail.com
+      name: zanhsieh
+    - email: rluckie@cisco.com
+      name: rtluckie
+    - email: maor.friedman@redhat.com
+      name: maorfr
+    - email: miroslav.hadzhiev@gmail.com
+      name: Xtigyro
+    - email: mail@torstenwalter.de
+      name: torstenwalter
+    name: grafana
+    sources:
+    - https://github.com/grafana/grafana
+    type: application
+    urls:
+    - https://observatory-cloud.github.io/helm-chart/charts/grafana-6.43.5.tgz
+    version: 6.43.5
+  loki:
+  - apiVersion: v2
+    appVersion: 2.8.0
+    created: "2023-04-22T19:16:44.254318+04:00"
+    dependencies:
+    - alias: minio
+      condition: minio.enabled
+      name: minio
+      repository: https://charts.min.io/
+      version: 4.0.12
+    - alias: grafana-agent-operator
+      condition: monitoring.selfMonitoring.grafanaAgent.installOperator
+      name: grafana-agent-operator
+      repository: https://grafana.github.io/helm-charts
+      version: 0.2.3
+    description: Helm chart for Grafana Loki in simple, scalable mode
+    digest: b29b878555c8a195f68be34b1abdeae7de166fd9ac11e085e50732f9f9b14ea6
+    home: https://grafana.github.io/helm-charts
+    icon: https://grafana.com/docs/loki/latest/logo_and_name.png
+    maintainers:
+    - name: trevorwhitney
+    - name: jeschkies
+    name: loki
+    sources:
+    - https://github.com/grafana/loki
+    - https://grafana.com/oss/loki/
+    - https://grafana.com/docs/loki/latest/
+    type: application
+    urls:
+    - https://observatory-cloud.github.io/helm-chart/charts/loki-5.2.0.tgz
+    version: 5.2.0
+  mimir-distributed:
+  - apiVersion: v2
+    appVersion: 2.7.2
+    created: "2023-04-22T19:16:44.263184+04:00"
+    dependencies:
+    - alias: minio
+      condition: minio.enabled
+      name: minio
+      repository: https://charts.min.io/
+      version: 5.0.4
+    - alias: grafana-agent-operator
+      condition: metaMonitoring.grafanaAgent.installOperator
+      name: grafana-agent-operator
+      repository: https://grafana.github.io/helm-charts
+      version: 0.2.8
+    - alias: rollout_operator
+      condition: rollout_operator.enabled
+      name: rollout-operator
+      repository: https://grafana.github.io/helm-charts
+      version: 0.2.0
+    description: Grafana Mimir
+    digest: ba58a20475cf39573cc5f81b84873b4a764833284f9f9513ca242e608dc9468f
+    home: https://grafana.com/docs/mimir/v2.7.x/
+    icon: https://grafana.com/static/img/logos/logo-mimir.svg
+    kubeVersion: ^1.20.0-0
+    name: mimir-distributed
+    urls:
+    - https://observatory-cloud.github.io/helm-chart/charts/mimir-distributed-4.3.1.tgz
+    version: 4.3.1
+  observatory:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-04-22T19:16:44.240423+04:00"
+    dependencies:
+    - condition: loki.enabled
+      name: loki
+      repository: https://grafana.github.io/helm-charts
+      version: ^5.0.0
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: ~6.52.7
+    - condition: promtail.enabled
+      name: promtail
+      repository: https://grafana.github.io/helm-charts
+      version: ^6.7.4
+    - condition: cert-manager.enabled
+      name: cert-manager
+      repository: https://charts.jetstack.io
+      version: ^1.11.0
+    - condition: opentelemetry-collector.enabled
+      name: opentelemetry-collector
+      repository: https://open-telemetry.github.io/opentelemetry-helm-charts
+      version: ^0.52.1
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: ~6.43.0
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: ~15.5.3
+    - condition: mimir-distributed.enabled
+      name: mimir-distributed
+      repository: https://grafana.github.io/helm-charts
+      version: ~4.3.1
+    - condition: tempo-distributed.enabled
+      name: tempo-distributed
+      repository: https://grafana.github.io/helm-charts
+      version: ~1.2.10
+    - condition: tempo.enabled
+      name: tempo
+      repository: https://grafana.github.io/helm-charts
+      version: ~1.0.3
+    description: Observatory monitoring Stack
+    digest: aaeb16d6fdbc689f9e429ebf80f58ae04b1838fc25093bbd37c79d959ec3ceaa
+    name: observatory
+    type: application
+    urls:
+    - https://observatory-cloud.github.io/helm-chart/observatory-0.1.2.tgz
+    version: 0.1.2
+  opentelemetry-collector:
+  - apiVersion: v2
+    appVersion: 0.75.0
+    created: "2023-04-22T19:16:44.264505+04:00"
+    description: OpenTelemetry Collector Helm chart for Kubernetes
+    digest: 04154dd02f430861ea264e356747683bb31a3dc1c402296b61add0e65204e4bf
+    home: https://opentelemetry.io/
+    icon: https://opentelemetry.io/img/logos/opentelemetry-logo-nav.png
+    maintainers:
+    - name: dmitryax
+    - name: TylerHelmuth
+    name: opentelemetry-collector
+    sources:
+    - https://github.com/open-telemetry/opentelemetry-collector
+    - https://github.com/open-telemetry/opentelemetry-collector-contrib
+    type: application
+    urls:
+    - https://observatory-cloud.github.io/helm-chart/charts/opentelemetry-collector-0.52.1.tgz
+    version: 0.52.1
+  prometheus:
+  - apiVersion: v2
+    appVersion: 2.34.0
+    created: "2023-04-22T19:16:44.267755+04:00"
+    dependencies:
+    - condition: kubeStateMetrics.enabled
+      name: kube-state-metrics
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 4.4.*
+    description: Prometheus is a monitoring system and time series database.
+    digest: 9ad4a74610f10aeed520d26944b5610f93c12996cc7da1c2010fed3c1721836b
+    home: https://prometheus.io/
+    icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+    maintainers:
+    - email: gianrubio@gmail.com
+      name: gianrubio
+    - email: zanhsieh@gmail.com
+      name: zanhsieh
+    - email: miroslav.hadzhiev@gmail.com
+      name: Xtigyro
+    - email: monotek23@gmail.com
+      name: monotek
+    - email: naseem@transit.app
+      name: naseemkullah
+    name: prometheus
+    sources:
+    - https://github.com/prometheus/alertmanager
+    - https://github.com/prometheus/prometheus
+    - https://github.com/prometheus/pushgateway
+    - https://github.com/prometheus/node_exporter
+    - https://github.com/kubernetes/kube-state-metrics
+    type: application
+    urls:
+    - https://observatory-cloud.github.io/helm-chart/charts/prometheus-15.5.4.tgz
+    version: 15.5.4
+  promtail:
+  - apiVersion: v2
+    appVersion: 2.7.4
+    created: "2023-04-22T19:16:44.268735+04:00"
+    description: Promtail is an agent which ships the contents of local logs to a
+      Loki instance
+    digest: 4302e2a2bbfae6075382bd8d12b00108d816319c907d01b39feaca9159d67cd8
+    home: https://grafana.com/loki
+    icon: https://raw.githubusercontent.com/grafana/loki/master/docs/sources/logo.png
+    maintainers:
+    - email: lokiproject@googlegroups.com
+      name: Loki Maintainers
+    - name: unguiculus
+    name: promtail
+    sources:
+    - https://github.com/grafana/loki
+    - https://grafana.com/oss/loki/
+    - https://grafana.com/docs/loki/latest/
+    type: application
+    urls:
+    - https://observatory-cloud.github.io/helm-chart/charts/promtail-6.10.0.tgz
+    version: 6.10.0
+  tempo:
+  - apiVersion: v2
+    appVersion: 2.0.1
+    created: "2023-04-22T19:16:44.269229+04:00"
+    description: Grafana Tempo Single Binary Mode
+    digest: 8c0c636bd4e31b97db0b015aa722ee53c9085b2f89195d6b9e07ee48cbc13efa
+    home: https://grafana.net
+    icon: https://raw.githubusercontent.com/grafana/tempo/master/docs/tempo/website/logo_and_name.png
+    maintainers:
+    - email: number101010@gmail.com
+      name: joe-elliott
+    - email: 9215868@gmail.com
+      name: swartz-k
+    - name: annanay25
+    - name: mdisibio
+    - name: dgzlopes
+    - name: mapno
+    name: tempo
+    sources:
+    - https://github.com/grafana/tempo
+    type: application
+    urls:
+    - https://observatory-cloud.github.io/helm-chart/charts/tempo-1.0.3.tgz
+    version: 1.0.3
+  tempo-distributed:
+  - apiVersion: v2
+    appVersion: 2.0.1
+    created: "2023-04-22T19:16:44.275745+04:00"
+    dependencies:
+    - alias: minio
+      condition: minio.enabled
+      name: minio
+      repository: https://helm.min.io/
+      version: 8.0.9
+    - alias: grafana-agent-operator
+      condition: metaMonitoring.grafanaAgent.installOperator
+      name: grafana-agent-operator
+      repository: https://grafana.github.io/helm-charts
+      version: 0.2.2
+    description: Grafana Tempo in MicroService mode
+    digest: 1dec6c7ac12bee63b07173280ce578e07e53f64ed4540c66fab83cd35728aa53
+    home: https://grafana.com/docs/tempo/latest/
+    icon: https://raw.githubusercontent.com/grafana/tempo/master/docs/tempo/website/logo_and_name.png
+    maintainers:
+    - email: number101010@gmail.com
+      name: joe-elliott
+    - email: 9215868@gmail.com
+      name: swartz-k
+    - name: annanay25
+    - name: mdisibio
+    - name: mapno
+    - name: BitProcessor
+    - name: faustodavid
+    - name: zalegrala
+    name: tempo-distributed
+    sources:
+    - https://github.com/grafana/tempo
+    type: application
+    urls:
+    - https://observatory-cloud.github.io/helm-chart/charts/tempo-distributed-1.2.10.tgz
+    version: 1.2.10
+generated: "2023-04-22T19:16:44.200974+04:00"

@@ -1,0 +1,57 @@
+apiVersion: v2
+name: observatory
+description: "Observatory monitoring Stack"
+type: application
+version: 0.1.2
+appVersion: "1.0.0"
+dependencies:
+
+- name: "loki"
+  condition: loki.enabled
+  repository: "https://grafana.github.io/helm-charts"
+  version: "^5.0.0"
+
+- name: "grafana"
+  condition: grafana.enabled
+  version: "~6.52.7"
+  repository:  "https://grafana.github.io/helm-charts"
+
+- name: "promtail"
+  condition: promtail.enabled
+  repository: "https://grafana.github.io/helm-charts"
+  version: "^6.7.4"
+
+- name: "cert-manager"
+  condition: cert-manager.enabled
+  repository: "https://charts.jetstack.io"
+  version: "^1.11.0"
+
+- name: "opentelemetry-collector"
+  condition: opentelemetry-collector.enabled
+  repository: "https://open-telemetry.github.io/opentelemetry-helm-charts"
+  version: "^0.52.1"
+
+- name: "grafana"
+  condition: grafana.enabled
+  version: "~6.43.0"
+  repository:  "https://grafana.github.io/helm-charts"
+
+- name: "prometheus"
+  condition: prometheus.enabled
+  version: "~15.5.3"
+  repository:  "https://prometheus-community.github.io/helm-charts"
+
+- name: mimir-distributed
+  condition: mimir-distributed.enabled
+  version: "~4.3.1"
+  repository:  "https://grafana.github.io/helm-charts"
+
+- name: "tempo-distributed"
+  condition: tempo-distributed.enabled
+  version: "~1.2.10"
+  repository:  "https://grafana.github.io/helm-charts"
+
+- name: "tempo"
+  condition: tempo.enabled
+  version: "~1.0.3"
+  repository:  "https://grafana.github.io/helm-charts"
