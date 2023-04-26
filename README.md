@@ -1,8 +1,8 @@
-## Get started
-
-Lighthouse Observability helm charts based on Grafana.
+## Observatory.Cloud - Helm Charts
+Observatory is a complete monitoring stack that includes Tracing, Metrics and Logging.
 
 ## Documentation
+Please go to docs.observatory.cloud for the detailed documentation.
 
 ##### Components
 * Grafana
@@ -14,15 +14,23 @@ Lighthouse Observability helm charts based on Grafana.
 * Prometheus
 * OpenTelemetry Collector
 
-
 ## Installation Guide
 
 You can install charts using Helm 3
 
 #### Example
+Basic Installation
 ```sh
-helm dependency build .
-helm upgrade --install <release name> -n <namespace> . -f overwrites.yaml --create-namespace
+helm repo add obs https://observatory-cloud.github.io/helm-charts/
+helm repo update
+helm install observatory obs/observatory
+```
+
+Disabling/Enabling certain modules:
+```sh
+helm upgrade --install <release name> -n <namespace> . --set loki.enabled=false --set tempo.enabled=true ..
 ```
 
 ## License
+
+MIT
