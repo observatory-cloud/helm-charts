@@ -12,19 +12,19 @@ loki:
       s3:
         endpoint: s3.amazonaws.com
         region: eu-central-1
-        secretAccessKey: OSfKGsTCIX6sN1njW3rvO3Dhw3caLlEQ62K/ZzmV
-        accessKeyId: AKIATJBFBWBZH3ZLTTHL
+        secretAccessKey: <na>
+        accessKeyId: <na>
         s3ForcePathStyle: false
         insecure: false
   monitoring:   
     serviceMonitor:
       metricsInstance:
        remoteWrite:
-       - url: "http://okko-mimir-nginx/api/v1/push"
+       - url: "http://observatory-mimir-nginx/api/v1/push"
     selfMonitoring:
       logsInstance:
         clients: 
-        - url: "http://okko-mimir-nginx/api/v1/push"
+        - url: "http://observatory-mimir-nginx/api/v1/push"
 
 ### Grafana
 grafana:
@@ -46,13 +46,13 @@ grafana:
           httpHeaderValue1: '1'
       - name: Mimir
         type: prometheus
-        url: http://okko-mimir-nginx/prometheus
+        url: http://observatory-mimir-nginx/prometheus
       - name: Prometheus
         type: prometheus
-        url: http://okko-prometheus-server
+        url: http://observatory-prometheus-server
       - name: Tempo
         type: tempo
-        url: http://okko-tempo-query-frontend:3100
+        url: http://observatory-tempo-query-frontend:3100
   
   # dashboards:
   #   default:
@@ -94,22 +94,22 @@ mimir-distributed:
         backend: s3
         s3:
           bucket_name: mimir-demo-bucket-0
-          access_key_id: AKIATJBFBWBZH3ZLTTHL
-          secret_access_key: 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
+          access_key_id: <na>
+          secret_access_key: <na>
           endpoint: s3.amazonaws.com
       alertmanager_storage:
         backend: s3
         s3:
           bucket_name: mimir-demo-bucket-0-alt
-          access_key_id: AKIATJBFBWBZH3ZLTTHL
-          secret_access_key: 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
+          access_key_id: <na>
+          secret_access_key: <na>
           endpoint: s3.amazonaws.com
       ruler_storage:
         backend: s3
         s3:
           bucket_name: mimir-demo-bucket-0-ruler
-          access_key_id: AKIATJBFBWBZH3ZLTTHL
-          secret_access_key: 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
+          access_key_id: <na>
+          secret_access_key: <na>
           endpoint: s3.amazonaws.com
 
 ### Promtail
@@ -126,7 +126,7 @@ prometheus:
   enabled: true
   server:
     remoteWrite:
-    - url: http://okko-mimir-nginx/api/v1/push
+    - url: http://observatory-mimir-nginx/api/v1/push
 
 ### Tempo
 
@@ -137,8 +137,8 @@ tempo-distributed:
       endpoint: s3.amazonaws.com
       region: eu-central-1
       bucket: tempo-demo-bucket-0
-      access_key: AKIATJBFBWBZH3ZLTTHL
-      secret_key: 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
+      access_key: <na>
+      secret_key: <na>
       insecure: false
   traces:
     otlp:
@@ -158,8 +158,8 @@ tempo:
           bucket: tempo-demo-bucket-0
           endpoint: s3.amazonaws.com
           region: eu-central-1
-          access_key: AKIATJBFBWBZH3ZLTTHL
-          secret_key: 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
+          access_key: <na>
+          secret_key: <na>
           insecure: false
 
 ### Cert-Manager
@@ -176,7 +176,7 @@ opentelemetry-collector:
       logging:
         loglevel: debug
       otlp:
-        endpoint: http://okko-tempo:4317
+        endpoint: http://observatory-tempo:4317
         tls:
           insecure: true
     service:
