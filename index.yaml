@@ -3,7 +3,7 @@ entries:
   observatory:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-04-28T05:13:45.029594+04:00"
+    created: "2023-04-28T06:20:16.969034+04:00"
     dependencies:
     - condition: loki.enabled
       name: loki
@@ -46,10 +46,10 @@ entries:
       repository: https://grafana.github.io/helm-charts
       version: ~1.0.3
     description: Observatory monitoring Stack
-    digest: 92427e80ed335b24fb5ad55ed72d70c8ccbb32f9d2cf3dec57df1952ee30c10e
+    digest: 06e4e09187dd35aa1dc915b460dad4bf28b9aed8bd563620b0e3f2f28c6c16e1
     name: observatory
     type: application
     urls:
-    - observatory-0.1.4.tgz
-    version: 0.1.4
-generated: "2023-04-28T05:13:44.995793+04:00"
+    - observatory-0.1.5.tgz
+    version: 0.1.5
+generated: "2023-04-28T06:20:16.938042+04:00"
