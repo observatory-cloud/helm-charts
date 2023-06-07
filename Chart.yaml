@@ -2,7 +2,7 @@ apiVersion: v2
 name: observatory
 description: "Observatory monitoring Stack"
 type: application
-version: 0.1.5
+version: 0.1.6
 appVersion: "1.0.0"
 dependencies:
 
@@ -24,7 +24,7 @@ dependencies:
 - name: "cert-manager"
   condition: cert-manager.enabled
   repository: "https://charts.jetstack.io"
-  version: "^1.11.0"
+  version: "^1.12.1"
 
 - name: "opentelemetry-collector"
   condition: opentelemetry-collector.enabled

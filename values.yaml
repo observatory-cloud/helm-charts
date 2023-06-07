@@ -1,6 +1,10 @@
 ### Loki
 loki:
-  enabled: true
+  enabled: false
+  write:
+    replicas: 1
+  read:
+    replicas: 1
   loki:
     auth_enabled: false
     storage:
@@ -74,7 +78,7 @@ grafana:
 
 ### Mimir
 mimir-distributed:
-  enabled: true
+  enabled: false
   minio:
     enabled: false
   nginx:
@@ -114,7 +118,7 @@ mimir-distributed:
 
 ### Promtail
 promtail:
-  enabled: true
+  enabled: false
   config:
     logLevel: info
     serverPort: 3101
@@ -123,7 +127,7 @@ promtail:
 
 ### Prometheus
 prometheus:
-  enabled: true
+  enabled: false
   server:
     remoteWrite:
     - url: http://observatory-mimir-nginx/api/v1/push
@@ -183,7 +187,7 @@ opentelemetry-collector:
       logging:
         loglevel: debug
       otlp:
-        endpoint: http://observatory-tempo:4317
+        endpoint: http://obs-tempo:4317
         tls:
           insecure: true
     service:
