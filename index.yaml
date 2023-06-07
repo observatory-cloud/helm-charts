@@ -3,7 +3,7 @@ entries:
   observatory:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-04-28T06:20:16.969034+04:00"
+    created: "2023-06-07T17:45:31.80592+04:00"
     dependencies:
     - condition: loki.enabled
       name: loki
@@ -20,7 +20,7 @@ entries:
     - condition: cert-manager.enabled
       name: cert-manager
       repository: https://charts.jetstack.io
-      version: ^1.11.0
+      version: ^1.12.1
     - condition: opentelemetry-collector.enabled
       name: opentelemetry-collector
       repository: https://open-telemetry.github.io/opentelemetry-helm-charts
@@ -46,10 +46,10 @@ entries:
       repository: https://grafana.github.io/helm-charts
       version: ~1.0.3
     description: Observatory monitoring Stack
-    digest: 06e4e09187dd35aa1dc915b460dad4bf28b9aed8bd563620b0e3f2f28c6c16e1
+    digest: 151ca5020e2cc9af298f1b8dc5b872d6148630aadcc844735bde5a85c111ee97
     name: observatory
     type: application
     urls:
-    - observatory-0.1.5.tgz
-    version: 0.1.5
-generated: "2023-04-28T06:20:16.938042+04:00"
+    - observatory-0.1.6.tgz
+    version: 0.1.6
+generated: "2023-06-07T17:45:31.771098+04:00"
