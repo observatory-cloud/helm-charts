@@ -1,22 +1,19 @@
 dependencies:
 - name: loki
   repository: https://grafana.github.io/helm-charts
-  version: 5.6.3
+  version: 5.6.4
 - name: grafana
   repository: https://grafana.github.io/helm-charts
   version: 6.52.9
 - name: promtail
   repository: https://grafana.github.io/helm-charts
-  version: 6.11.2
+  version: 6.11.3
 - name: cert-manager
   repository: https://charts.jetstack.io
   version: v1.12.1
 - name: opentelemetry-collector
   repository: https://open-telemetry.github.io/opentelemetry-helm-charts
   version: 0.52.1
-- name: grafana
-  repository: https://grafana.github.io/helm-charts
-  version: 6.43.5
 - name: prometheus
   repository: https://prometheus-community.github.io/helm-charts
   version: 15.5.4
@@ -29,5 +26,5 @@ dependencies:
 - name: tempo
   repository: https://grafana.github.io/helm-charts
   version: 1.0.3
-digest: sha256:934a7e4360ed5b8f20888ab76153aa726409837a6f050672531c8ff748774251
-generated: "2023-06-07T17:54:47.236601+04:00"
+digest: sha256:48a904e903ebc5a39055b1c5438bb8a7dfe0445fb639ff5f0be9b48eb13b0775
+generated: "2023-06-09T03:59:35.660697+04:00"

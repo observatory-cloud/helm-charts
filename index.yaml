@@ -8,7 +8,7 @@ entries:
         url: https://cert-manager.io/public-keys/cert-manager-keyring-2021-09-20-1020CF3C033D4F35BAE1C19E1226061C665DF13E.gpg
     apiVersion: v1
     appVersion: v1.12.1
-    created: "2023-06-07T17:56:13.327064+04:00"
+    created: "2023-06-09T04:00:54.784837+04:00"
     description: A Helm chart for cert-manager
     digest: d3778a92e907cb033621d42b7de0cb1c1de30c6777d74e34382e8bff7e3abfa6
     home: https://github.com/cert-manager/cert-manager
@@ -32,7 +32,7 @@ entries:
   grafana:
   - apiVersion: v2
     appVersion: 9.4.7
-    created: "2023-06-07T17:56:13.330658+04:00"
+    created: "2023-06-09T04:00:54.788379+04:00"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: 029e2928a2073acfd49205d8484faad90ddcd2fe65fe5c6a508dee9a0c56330b
     home: https://grafana.net
@@ -56,36 +56,10 @@ entries:
     urls:
     - charts/grafana-6.52.9.tgz
     version: 6.52.9
-  - apiVersion: v2
-    appVersion: 9.2.4
-    created: "2023-06-07T17:56:13.329011+04:00"
-    description: The leading tool for querying and visualizing time series and metrics.
-    digest: dc45d75ff06f6ca82a3c7dc063ebe73f8e4c6126c5a131a51ed35294743eb087
-    home: https://grafana.net
-    icon: https://raw.githubusercontent.com/grafana/grafana/master/public/img/logo_transparent_400x.png
-    kubeVersion: ^1.8.0-0
-    maintainers:
-    - email: zanhsieh@gmail.com
-      name: zanhsieh
-    - email: rluckie@cisco.com
-      name: rtluckie
-    - email: maor.friedman@redhat.com
-      name: maorfr
-    - email: miroslav.hadzhiev@gmail.com
-      name: Xtigyro
-    - email: mail@torstenwalter.de
-      name: torstenwalter
-    name: grafana
-    sources:
-    - https://github.com/grafana/grafana
-    type: application
-    urls:
-    - charts/grafana-6.43.5.tgz
-    version: 6.43.5
   loki:
   - apiVersion: v2
     appVersion: 2.8.2
-    created: "2023-06-07T17:56:13.336904+04:00"
+    created: "2023-06-09T04:00:54.796234+04:00"
     dependencies:
     - alias: minio
       condition: minio.enabled
@@ -98,7 +72,7 @@ entries:
       repository: https://grafana.github.io/helm-charts
       version: 0.2.3
     description: Helm chart for Grafana Loki in simple, scalable mode
-    digest: c895896bdc0170b561898efad4cb0e8b3401e8e014e875f6a7046262c6d178a7
+    digest: 94a6e517eff9f6de090767a96b18a55a7c945344e79a5e02e4406830580b234e
     home: https://grafana.github.io/helm-charts
     icon: https://grafana.com/docs/loki/latest/logo_and_name.png
     maintainers:
@@ -111,12 +85,12 @@ entries:
     - https://grafana.com/docs/loki/latest/
     type: application
     urls:
-    - charts/loki-5.6.3.tgz
-    version: 5.6.3
+    - charts/loki-5.6.4.tgz
+    version: 5.6.4
   mimir-distributed:
   - apiVersion: v2
     appVersion: 2.7.2
-    created: "2023-06-07T17:56:13.345532+04:00"
+    created: "2023-06-09T04:00:54.806016+04:00"
     dependencies:
     - alias: minio
       condition: minio.enabled
@@ -142,62 +116,10 @@ entries:
     urls:
     - charts/mimir-distributed-4.3.1.tgz
     version: 4.3.1
-  observatory:
-  - apiVersion: v2
-    appVersion: 1.0.0
-    created: "2023-06-07T17:56:13.325074+04:00"
-    dependencies:
-    - condition: loki.enabled
-      name: loki
-      repository: https://grafana.github.io/helm-charts
-      version: ^5.0.0
-    - condition: grafana.enabled
-      name: grafana
-      repository: https://grafana.github.io/helm-charts
-      version: ~6.52.7
-    - condition: promtail.enabled
-      name: promtail
-      repository: https://grafana.github.io/helm-charts
-      version: ^6.7.4
-    - condition: cert-manager.enabled
-      name: cert-manager
-      repository: https://charts.jetstack.io
-      version: ^1.12.1
-    - condition: opentelemetry-collector.enabled
-      name: opentelemetry-collector
-      repository: https://open-telemetry.github.io/opentelemetry-helm-charts
-      version: ^0.52.1
-    - condition: grafana.enabled
-      name: grafana
-      repository: https://grafana.github.io/helm-charts
-      version: ~6.43.0
-    - condition: prometheus.enabled
-      name: prometheus
-      repository: https://prometheus-community.github.io/helm-charts
-      version: ~15.5.3
-    - condition: mimir-distributed.enabled
-      name: mimir-distributed
-      repository: https://grafana.github.io/helm-charts
-      version: ~4.3.1
-    - condition: tempo-distributed.enabled
-      name: tempo-distributed
-      repository: https://grafana.github.io/helm-charts
-      version: ~1.2.10
-    - condition: tempo.enabled
-      name: tempo
-      repository: https://grafana.github.io/helm-charts
-      version: ~1.0.3
-    description: Observatory monitoring Stack
-    digest: e613583d2a50db13e8d34dc16f06dbff3dd559116a5c72c08ff7a092507573b8
-    name: observatory
-    type: application
-    urls:
-    - observatory-0.1.6.tgz
-    version: 0.1.6
   opentelemetry-collector:
   - apiVersion: v2
     appVersion: 0.75.0
-    created: "2023-06-07T17:56:13.346725+04:00"
+    created: "2023-06-09T04:00:54.807401+04:00"
     description: OpenTelemetry Collector Helm chart for Kubernetes
     digest: 04154dd02f430861ea264e356747683bb31a3dc1c402296b61add0e65204e4bf
     home: https://opentelemetry.io/
@@ -216,7 +138,7 @@ entries:
   prometheus:
   - apiVersion: v2
     appVersion: 2.34.0
-    created: "2023-06-07T17:56:13.349308+04:00"
+    created: "2023-06-09T04:00:54.810555+04:00"
     dependencies:
     - condition: kubeStateMetrics.enabled
       name: kube-state-metrics
@@ -251,10 +173,10 @@ entries:
   promtail:
   - apiVersion: v2
     appVersion: 2.8.2
-    created: "2023-06-07T17:56:13.350186+04:00"
+    created: "2023-06-09T04:00:54.811622+04:00"
     description: Promtail is an agent which ships the contents of local logs to a
       Loki instance
-    digest: 00d807731bac4ee899491d17a64fd60829a4f7b2eb3158c7ee008c577b0341ab
+    digest: f8883e80a4c5d26a91f62294cf1994bfee7910102a07eaafa46ea646439b72d1
     home: https://grafana.com/loki
     icon: https://raw.githubusercontent.com/grafana/loki/master/docs/sources/logo.png
     maintainers:
@@ -268,12 +190,12 @@ entries:
     - https://grafana.com/docs/loki/latest/
     type: application
     urls:
-    - charts/promtail-6.11.2.tgz
-    version: 6.11.2
+    - charts/promtail-6.11.3.tgz
+    version: 6.11.3
   tempo:
   - apiVersion: v2
     appVersion: 2.0.1
-    created: "2023-06-07T17:56:13.350617+04:00"
+    created: "2023-06-09T04:00:54.812123+04:00"
     description: Grafana Tempo Single Binary Mode
     digest: 8c0c636bd4e31b97db0b015aa722ee53c9085b2f89195d6b9e07ee48cbc13efa
     home: https://grafana.net
@@ -297,7 +219,7 @@ entries:
   tempo-distributed:
   - apiVersion: v2
     appVersion: 2.0.1
-    created: "2023-06-07T17:56:13.356655+04:00"
+    created: "2023-06-09T04:00:54.818622+04:00"
     dependencies:
     - alias: minio
       condition: minio.enabled
@@ -331,4 +253,4 @@ entries:
     urls:
     - charts/tempo-distributed-1.2.11.tgz
     version: 1.2.11
-generated: "2023-06-07T17:56:13.260253+04:00"
+generated: "2023-06-09T04:00:54.781828+04:00"
